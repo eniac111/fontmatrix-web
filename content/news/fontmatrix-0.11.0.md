@@ -6,4 +6,4 @@ description: Bulgarian translation.
 
 Fontmatrix 0.11.0 adds a Bulgarian translation.
 
-[Release page](https://github.com/eniac111/fontmatrix/releases/tag/v0.11.0)
+[Release page](https://github.com/fontmatrix/fontmatrix/releases/tag/v0.11.0)

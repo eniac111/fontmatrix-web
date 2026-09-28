@@ -112,3 +112,5 @@ footer.site p { margin: .25rem 0; }
   .entries time { display: block; min-width: 0; }
   .entries p { margin-left: 0; }
 }
+
+.mail pre { white-space: pre-wrap; overflow-wrap: anywhere; }

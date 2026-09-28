@@ -23,3 +23,8 @@ are gone, but the [Internet Archive](https://web.archive.org/web/20151218142406/
 kept the pages. They are collected here with their original text; download
 links point to the archived files, and the videos, which were hosted on
 blip.tv, are lost.
+
+The discussions of that time took place on the undertype-users mailing list.
+Its archive at Gna! went with the site; the
+[messages from 2007 to 2017](/history/mailing-list/) are kept here, copied from
+[The Mail Archive](https://www.mail-archive.com/undertype-users@gna.org/maillist.html).

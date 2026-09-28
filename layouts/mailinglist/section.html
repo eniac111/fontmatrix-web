@@ -1,0 +1,14 @@
+{{ define "main" }}
+<h1>{{ .Title }}</h1>
+{{ .Content }}
+<h2>{{ len .Pages }} messages, by thread</h2>
+<ul class="entries threads">
+  {{ range (.Pages.GroupByParam "thread").Reverse }}
+  {{ $messages := .Pages.ByDate }}
+  {{ with index $messages 0 }}
+  <li><time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2 Jan 2006" }}</time> <a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
+    <p>{{ .Params.author }}{{ with sub (len $messages) 1 }} · {{ . }} {{ cond (eq . 1) "reply" "replies" }}{{ end }}</p></li>
+  {{ end }}
+  {{ end }}
+</ul>
+{{ end }}

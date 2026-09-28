@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Re: [Undertype-users] Help with fontmatrix?</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="apple-touch-icon" sizes="114x114" href="/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="72x72" href="/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-57x57.png">
+<link rel="shortcut icon" href="/favicon.ico">
+<link rel="contents" href="index.html#00161" id="c">
+<link rel="index" href="maillist.html#00161" id="i">
+<link rel="prev" href="msg00160.html" id="p">
+<link rel="next" href="msg00162.html" id="n">
+<link rel="canonical" href="https://www.mail-archive.com/undertype-users@gna.org/msg00161.html">
+<link rel="stylesheet" href="/normalize.css" media="screen">
+<link rel="stylesheet" href="/master.css" media="screen">
+
+<!--[if lt IE 9]>
+<link rel="stylesheet" href="/ie.css" media="screen">
+<![endif]-->
+</head>
+<body>
+<script language="javascript" type="text/javascript">
+document.onkeydown = NavigateThrough;
+function NavigateThrough (event)
+{
+  if (!document.getElementById) return;
+  if (window.event) event = window.event;
+  if (event.target.tagName == 'INPUT') return;
+  if (event.ctrlKey || event.metaKey) return;
+  var link = null;
+  switch (event.keyCode ? event.keyCode : event.which ? event.which : null) {
+    case 74:
+    case 80:
+      link = document.getElementById ('p');
+      break;
+    case 75:
+    case 78:
+      link = document.getElementById ('n');
+      break;
+    case 69:
+      link = document.getElementById ('e');
+      break;
+    }
+  if (link && link.href) document.location = link.href;
+}
+</script>
+<div itemscope itemtype="http://schema.org/Article" class="container">
+<div class="skipLink">
+<a href="#nav">Skip to site navigation (Press enter)</a>
+</div>
+<div class="content" role="main">
+<div class="msgHead">
+<h1>
+<span class="subject"><a href="/search?l=undertype-users@gna.org&amp;q=subject:%22Re%5C%3A+%5C%5BUndertype%5C-users%5C%5D+Help+with+fontmatrix%5C%3F%22&amp;o=newest" rel="nofollow"><span itemprop="name">Re: [Undertype-users] Help with fontmatrix?</span></a></span>
+</h1>
+<p class="darkgray font13">
+<span class="sender pipe"><a href="/search?l=undertype-users@gna.org&amp;q=from:%223%C3%975%22" rel="nofollow"><span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">3×5</span></span></a></span>
+<span class="date"><a href="/search?l=undertype-users@gna.org&amp;q=date:20121218" rel="nofollow">Tue, 18 Dec 2012 12:05:38 -0800</a></span>
+</p>
+</div>
+<div itemprop="articleBody" class="msgBody">
+<!--X-Body-of-Message-->
+<pre style="margin: 0em;">
+On 12/18/2012 01:45 AM, Alexandre Prokoudine wrote:
+</pre><blockquote style="border-left: #5555EE solid 0.2em; margin: 0em; padding-left: 0.85em"><pre style="margin: 0em;">
+Sorry, but what dependency are we talking about?
+</pre></blockquote><pre style="margin: 0em;"></pre><pre>
+
+libicu44. I was able to get the old version of fontmatrix this way:
+
+1) I went to
+</pre><tt><a  rel="nofollow" href="http://pkgs.org/ubuntu-11.10/ubuntu-main-i386/libicu44_4.4.2-2_i386.deb/download/">http://pkgs.org/ubuntu-11.10/ubuntu-main-i386/libicu44_4.4.2-2_i386.deb/download/</a> 
+</tt><tt>
+</tt><pre style="margin: 0em;">
+to get the dependency.
+2) I went to<a  rel="nofollow" href="http://archive.ubuntu.com/ubuntu/pool/universe/f/fontmatrix/">http://archive.ubuntu.com/ubuntu/pool/universe/f/fontmatrix/</a>
+and got the old FontMatrix.
+
+</pre><blockquote style="border-left: #5555EE solid 0.2em; margin: 0em; padding-left: 0.85em"><pre style="margin: 0em;">
+1) Why is an older version considered to be more feature complete?
+</pre></blockquote><pre style="margin: 0em;">
+
+</pre><tt>You know, comparing the two version on two different computers, I can 
+</tt><tt>now see that the functionality is intact in the most recent release. I 
+</tt><tt>could never figure out how to use it because I thought the interface was 
+</tt><tt>so counterintuitive. I still think the old interface is fantastic and 
+</tt><tt>the new one leaves something to be desired (the rounded boxes, the 
+</tt><tt>pop-out compare and playground windows).
+</tt><pre style="margin: 0em;">
+
+</pre><blockquote style="border-left: #5555EE solid 0.2em; margin: 0em; padding-left: 0.85em"><pre style="margin: 0em;">
+2) Why is a user unable to go back to an older version? Is this about
+versioning of packages on Linux?
+</pre></blockquote><pre style="margin: 0em;">
+
+</pre><tt>Because my package manager couldn't find libicu44. I downloaded the deb 
+</tt><tt>and it's running now.
+</tt><pre style="margin: 0em;">
+
+</pre><blockquote style="border-left: #5555EE solid 0.2em; margin: 0em; padding-left: 0.85em"><pre style="margin: 0em;">
+Note that I haven't moved branches from the old SVN, and I don't think
+it's a lot of fun applying any patches in a local repository. I would
+rather disable optional OpenType shaping to avoid crashes and polish
+UI than bring back the dead.
+</pre></blockquote><tt>I think FontMatrix is exceptional, and the ONLY game in town for Linux 
+</tt><tt>designers who want a real, professional font management solution. I've 
+</tt><tt>used Suitcase and the other big, expensive font suites which I think are 
+</tt><tt>bloated and not very good, and some cheaper windows managers like 
+</tt><tt>MainType and Font Expert, which are pretty good. But so far it looks 
+</tt><tt>like FontMatrix is the best manager, on linux or Windows, free or paid.
+</tt><pre style="margin: 0em;">
+
+</pre><tt>All of that said, I think I would sooner stick with this older UI until 
+</tt><tt>the new one is polished, unless I'm missing some major improvements in 
+</tt><tt>the new one. If I had the technical skills to polish the UI, I think I 
+</tt><tt>would suggest bring back the tabs, remove the rounded borders around the 
+</tt><tt>array of fonts on the main screen, add the field back in where you can 
+</tt><tt>change the display text from &lt;name&gt; to something else (currently, I 
+</tt><tt>think this can still be done in preferences) and I think that would go a 
+</tt><tt>long way. Also, there's a field in the upper-left called 'filter' that 
+</tt><tt>doesn't appear to do anything. Honestly, this older UI seems perfect to 
+</tt><tt>me...
+</tt><pre style="margin: 0em;">
+
+_______________________________________________
+Undertype-users mailing list
+<a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="a0f5cec4c5d2d4d9d0c58dd5d3c5d2d3e0c7cec18ecfd2c7">[email&#160;protected]</a>
+<a  rel="nofollow" href="https://mail.gna.org/listinfo/undertype-users">https://mail.gna.org/listinfo/undertype-users</a>
+</pre>
+
+</div>
+<div class="msgButtons margintopdouble">
+<ul class="overflow">
+<li class="msgButtonItems"><a class="button buttonleft " accesskey="p" href="msg00160.html">Previous message</a></li>
+<li class="msgButtonItems textaligncenter"><a class="button" accesskey="c" href="index.html#00161">View by thread</a></li>
+<li class="msgButtonItems textaligncenter"><a class="button" accesskey="i" href="maillist.html#00161">View by date</a></li>
+<li class="msgButtonItems textalignright"><a class="button buttonright " accesskey="n" href="msg00162.html">Next message</a></li>
+</ul>
+</div>
+<a name="tslice"></a>
+<div class="tSliceList margintopdouble">
+<ul class="icons monospace">
+<li class="icons-email"><span class="subject"><a href="msg00159.html">[Undertype-users] Help with fontmatrix?</a></span> <span class="sender italic">3×5</span></li>
+<li><ul>
+<li class="icons-email"><span class="subject"><a href="msg00160.html">Re: [Undertype-users] Help with fontmatrix?</a></span> <span class="sender italic">Dave Crossland</span></li>
+<li class="icons-email tSliceCur"><span class="subject">Re: [Undertype-users] Help with fontmatrix?</span> <span class="sender italic">3×5</span></li>
+</ul>
+</ul>
+</div>
+<div class="overflow msgActions margintopdouble">
+<div class="msgReply" >
+<h2>
+					Reply via email to
+</h2>
+<form method="POST" action="/mailto.php">
+<input type="hidden" name="subject" value="Re: [Undertype-users] Help with fontmatrix?">
+<input type="hidden" name="msgid" value="50D0CC6A.4010905@3x5.co">
+<input type="hidden" name="relpath" value="undertype-users@gna.org/msg00161.html">
+<input type="submit" value=" 3×5 ">
+</form>
+</div>
+</div>
+</div>
+<div class="aside" role="complementary">
+<div class="logo">
+<a href="/"><img src="/logo.png" width=247 height=88 alt="The Mail Archive"></a>
+</div>
+<form class="overflow" action="/search" method="get">
+<input type="hidden" name="l" value="undertype-users@gna.org">
+<label class="hidden" for="q">Search the site</label>
+<input class="submittext" type="text" id="q" name="q" placeholder="Search undertype-users">
+<input class="submitbutton" name="submit" type="image" src="/submit.png" alt="Submit">
+</form>
+<div class="nav margintop" id="nav" role="navigation">
+<ul class="icons font16">
+<li class="icons-home"><a href="/">The Mail Archive home</a></li>
+<li class="icons-list"><a href="/undertype-users@gna.org/">undertype-users - all messages</a></li>
+<li class="icons-about"><a href="/undertype-users@gna.org/info.html">undertype-users - about the list</a></li>
+<li class="icons-expand"><a href="/search?l=undertype-users@gna.org&amp;q=subject:%22Re%5C%3A+%5C%5BUndertype%5C-users%5C%5D+Help+with+fontmatrix%5C%3F%22&amp;o=newest&amp;f=1" title="e" id="e">Expand</a></li>
+<li class="icons-prev"><a href="msg00160.html" title="p">Previous message</a></li>
+<li class="icons-next"><a href="msg00162.html" title="n">Next message</a></li>
+</ul>
+</div>
+<div class="listlogo margintopdouble">
+
+</div>
+<div class="margintopdouble">
+
+</div>
+</div>
+</div>
+<div class="footer" role="contentinfo">
+<ul>
+<li><a href="/">The Mail Archive home</a></li>
+<li><a href="/faq.html#newlist">Add your mailing list</a></li>
+<li><a href="/faq.html">FAQ</a></li>
+<li><a href="/faq.html#support">Support</a></li>
+<li><a href="/faq.html#privacy">Privacy</a></li>
+<li class="darkgray"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="2c191c681c6f6f1a6d02181c1d1c151c196c1f5419024f43">[email&#160;protected]</a></li>
+</ul>
+</div>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a423d9780d08263a',t:'MTc5MDYxMDA1Ng=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>

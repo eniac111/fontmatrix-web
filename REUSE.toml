@@ -3,7 +3,9 @@
 version = 1
 
 # The pages under content/history/ and the images under static/history/ come from the old
-# fontmatrix.be site and are not covered here.
+# fontmatrix.be site and are not covered here. Neither is the undertype-users mailing list
+# (archive/undertype-users/, content/history/mailing-list/, static/history/undertype-users.mbox):
+# each message belongs to the person who wrote it.
 [[annotations]]
 path = [
     "hugo.toml", "layouts/**", "assets/**", "README.md", "static/CNAME",

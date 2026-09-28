@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>[Undertype-users] New work on fonts at W3C</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="apple-touch-icon" sizes="114x114" href="/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="72x72" href="/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-57x57.png">
+<link rel="shortcut icon" href="/favicon.ico">
+<link rel="contents" href="index.html#00123" id="c">
+<link rel="index" href="maillist.html#00123" id="i">
+<link rel="prev" href="msg00118.html" id="p">
+<link rel="next" href="msg00124.html" id="n">
+<link rel="canonical" href="https://www.mail-archive.com/undertype-users@gna.org/msg00123.html">
+<link rel="stylesheet" href="/normalize.css" media="screen">
+<link rel="stylesheet" href="/master.css" media="screen">
+
+<!--[if lt IE 9]>
+<link rel="stylesheet" href="/ie.css" media="screen">
+<![endif]-->
+</head>
+<body>
+<script language="javascript" type="text/javascript">
+document.onkeydown = NavigateThrough;
+function NavigateThrough (event)
+{
+  if (!document.getElementById) return;
+  if (window.event) event = window.event;
+  if (event.target.tagName == 'INPUT') return;
+  if (event.ctrlKey || event.metaKey) return;
+  var link = null;
+  switch (event.keyCode ? event.keyCode : event.which ? event.which : null) {
+    case 74:
+    case 80:
+      link = document.getElementById ('p');
+      break;
+    case 75:
+    case 78:
+      link = document.getElementById ('n');
+      break;
+    case 69:
+      link = document.getElementById ('e');
+      break;
+    }
+  if (link && link.href) document.location = link.href;
+}
+</script>
+<div itemscope itemtype="http://schema.org/Article" class="container">
+<div class="skipLink">
+<a href="#nav">Skip to site navigation (Press enter)</a>
+</div>
+<div class="content" role="main">
+<div class="msgHead">
+<h1>
+<span class="subject"><a href="/search?l=undertype-users@gna.org&amp;q=subject:%22%5C%5BUndertype%5C-users%5C%5D+New+work+on+fonts+at+W3C%22&amp;o=newest" rel="nofollow"><span itemprop="name">[Undertype-users] New work on fonts at W3C</span></a></span>
+</h1>
+<p class="darkgray font13">
+<span class="sender pipe"><a href="/search?l=undertype-users@gna.org&amp;q=from:%22Chris+Lilley%22" rel="nofollow"><span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">Chris Lilley</span></span></a></span>
+<span class="date"><a href="/search?l=undertype-users@gna.org&amp;q=date:20090512" rel="nofollow">Tue, 12 May 2009 07:33:25 -0700</a></span>
+</p>
+</div>
+<div itemprop="articleBody" class="msgBody">
+<!--X-Body-of-Message-->
+<pre>Hello undertype-users,
+
+ 
+Introduction</pre><pre>
+
+W3C is collecting ideas for work related to downloadable fonts on the Web. This 
+email summarizes the current situation, and asks for feedback on a draft 
+charter [0] for a future W3C Font working group or interest group. Please send 
+feedback on the charter to the publicly archived mailing list <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="116666663c62653f3f3f5166223f7e6376">[email&#160;protected]</a>.
+
+Background
+
+The method of linking to fonts from CSS stylesheets or from SVG content - 
+WebFonts - is already standardized in CSS2 [1] and SVG 1.1 [2]. That work is 
+being refined in the CSS3 Fonts module [3], for the CSS serialization. SVG 1.1 
+allows both CSS and XML serialisations of WebFonts. SVG Tiny 1.2 uses the XML 
+serialisation. XSL may use the WebFont mechanism in future, in the XL 
+serialization.
+
+CSS2 WebFonts allows for font matching, font synthesis, and font download. of 
+those, only font download has been implemented in multiple user agents.
+
+What has hindered deployment, however, has been the choice of what font format 
+to download. 
+
+CSS2 suggests several formats, none of them being required for compliance. 
+Microsoft implemented WebFonts in IE4, using the then-proprietary EOT encoding 
+of an OpenType font. EOT (and the related MicroType Express format) have since 
+been documented in a submission to W3C [4] with the promise of royalty-free 
+commitments, if the EOT and MicroType Express formats form part of a W3C 
+Recommendation. 
+
+SVG requires one format (SVG fonts) and allows others to be linked. Adobe 
+implemented WebFonts in ASV, supporting SVG and CFF (a subset of OpenType, 
+using only Type 1 glyphs). Apache implemented WebFonts in Batik, supporting the 
+SVG format. Opera implements WebFonts with SVG, and the fonts may be applied to 
+SVG, HTML, or mixed SVG/XHTML content.
+
+Several Web browsers now implement WebFonts, with the OpenType format: Firefox 
+3.5 (beta 4 was tested), Safari 3.1 and 4, and Opera 10 (alpha). W3C has 
+produced tests for complex international script rendering with downloadable 
+fonts; the test and results are available [5]. (Firefox 3.5 beta 4 results are 
+yet to be added to this table).
+
+Font licenses vary. Some fonts, libre, are provided with source code and permit 
+extension, modification, and redistribution. The Open Font Library [6] collects 
+such libre fonts. Other fonts may be downloaded and used, but may not be 
+changed, subsetted, or converted to another format. (Often such fonts are 
+contained in zip files; being able to link to a specific font inside a zipfile 
+is desirable).
+
+Some fonts are licensed to a specific site or domain. EOT provides one way to 
+indicate this in the font itself. Cross Origin Resource Sharing (CORS, 
+previously known as Access Control) is a W3C specification which may also be 
+used to indicate this [7]. Mozilla Firefox restricts downloadable OpenType 
+fonts to those permitted by CORS.
+There may be other ways to indicate metadata, so that foundries and font 
+licensees may indicate the nature of their agreement.
+
+Lastly there are of course fonts intended for use exclusively with print, whose 
+licenses explicitly preclude use on the Web.
+
+Please take a moment to read and comment on the proposed charter [0] which is a 
+work in progress.
+
+[0] <a  rel="nofollow" href="http://www.w3.org/2009/03/fonts-wg-charter">http://www.w3.org/2009/03/fonts-wg-charter</a>
+[1] <a  rel="nofollow" href="http://www.w3.org/TR/2008/REC-CSS2-20080411/fonts.html">http://www.w3.org/TR/2008/REC-CSS2-20080411/fonts.html</a>
+[2] <a  rel="nofollow" href="http://www.w3.org/TR/SVG11/fonts.html">http://www.w3.org/TR/SVG11/fonts.html</a>
+[3] <a  rel="nofollow" href="http://dev.w3.org/csswg/css3-fonts/">http://dev.w3.org/csswg/css3-fonts/</a>
+[4] <a  rel="nofollow" href="http://www.w3.org/Submission/2008/01/">http://www.w3.org/Submission/2008/01/</a>
+[5] 
+<a  rel="nofollow" href="http://www.w3.org/International/tests/tests-html-css/tests-webfonts/results-font-linking">http://www.w3.org/International/tests/tests-html-css/tests-webfonts/results-font-linking</a>
+[6] <a  rel="nofollow" href="http://www.openfontlibrary.org/">http://www.openfontlibrary.org/</a>
+[7] <a  rel="nofollow" href="http://www.w3.org/TR/access-control/">http://www.w3.org/TR/access-control/</a>
+
+-- 
+ Chris Lilley                    <a rel="nofollow" href="/cdn-cgi/l/email-protection#d7b4bff9f9f997a0e4f9b8a5b0">mailto:<span class="__cf_email__" data-cfemail="8ae9e2a4a4a4cafdb9a4e5f8ed">[email&#160;protected]</span></a>
+ Technical Director, Interaction Domain
+ W3C Graphics Activity Lead
+ Co-Chair, W3C Hypertext CG
+
+
+_______________________________________________
+Undertype-users mailing list
+<a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="d085beb4b5a2a4a9a0b5fda5a3b5a2a390b7beb1febfa2b7">[email&#160;protected]</a>
+<a  rel="nofollow" href="https://mail.gna.org/listinfo/undertype-users">https://mail.gna.org/listinfo/undertype-users</a>
+</pre>
+
+</div>
+<div class="msgButtons margintopdouble">
+<ul class="overflow">
+<li class="msgButtonItems"><a class="button buttonleft " accesskey="p" href="msg00118.html">Previous message</a></li>
+<li class="msgButtonItems textaligncenter"><a class="button" accesskey="c" href="index.html#00123">View by thread</a></li>
+<li class="msgButtonItems textaligncenter"><a class="button" accesskey="i" href="maillist.html#00123">View by date</a></li>
+<li class="msgButtonItems textalignright"><a class="button buttonright " accesskey="n" href="msg00124.html">Next message</a></li>
+</ul>
+</div>
+<a name="tslice"></a>
+<div class="tSliceList margintopdouble">
+<ul class="icons monospace">
+
+</ul>
+</div>
+<div class="overflow msgActions margintopdouble">
+<div class="msgReply" >
+<h2>
+					Reply via email to
+</h2>
+<form method="POST" action="/mailto.php">
+<input type="hidden" name="subject" value="[Undertype-users] New work on fonts at W3C">
+<input type="hidden" name="msgid" value="1531959231.20090512160739@w3.org">
+<input type="hidden" name="relpath" value="undertype-users@gna.org/msg00123.html">
+<input type="submit" value=" Chris Lilley ">
+</form>
+</div>
+</div>
+</div>
+<div class="aside" role="complementary">
+<div class="logo">
+<a href="/"><img src="/logo.png" width=247 height=88 alt="The Mail Archive"></a>
+</div>
+<form class="overflow" action="/search" method="get">
+<input type="hidden" name="l" value="undertype-users@gna.org">
+<label class="hidden" for="q">Search the site</label>
+<input class="submittext" type="text" id="q" name="q" placeholder="Search undertype-users">
+<input class="submitbutton" name="submit" type="image" src="/submit.png" alt="Submit">
+</form>
+<div class="nav margintop" id="nav" role="navigation">
+<ul class="icons font16">
+<li class="icons-home"><a href="/">The Mail Archive home</a></li>
+<li class="icons-list"><a href="/undertype-users@gna.org/">undertype-users - all messages</a></li>
+<li class="icons-about"><a href="/undertype-users@gna.org/info.html">undertype-users - about the list</a></li>
+<li class="icons-expand"><a href="/search?l=undertype-users@gna.org&amp;q=subject:%22%5C%5BUndertype%5C-users%5C%5D+New+work+on+fonts+at+W3C%22&amp;o=newest&amp;f=1" title="e" id="e">Expand</a></li>
+<li class="icons-prev"><a href="msg00118.html" title="p">Previous message</a></li>
+<li class="icons-next"><a href="msg00124.html" title="n">Next message</a></li>
+</ul>
+</div>
+<div class="listlogo margintopdouble">
+
+</div>
+<div class="margintopdouble">
+
+</div>
+</div>
+</div>
+<div class="footer" role="contentinfo">
+<ul>
+<li><a href="/">The Mail Archive home</a></li>
+<li><a href="/faq.html#newlist">Add your mailing list</a></li>
+<li><a href="/faq.html">FAQ</a></li>
+<li><a href="/faq.html#support">Support</a></li>
+<li><a href="/faq.html#privacy">Privacy</a></li>
+<li class="darkgray"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="67565254565e525e555456495557575e5752565556515750545e27105449081500">[email&#160;protected]</a></li>
+</ul>
+</div>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a423d8d34b86f9bb',t:'MTc5MDYxMDAzMA=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>

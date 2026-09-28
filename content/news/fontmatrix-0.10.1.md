@@ -8,4 +8,4 @@ description: Crash fixes and a nicer splash screen.
 - Build versions follow the release tag.
 - A nicer splash screen.
 
-[Release page](https://github.com/eniac111/fontmatrix/releases/tag/v0.10.1)
+[Release page](https://github.com/fontmatrix/fontmatrix/releases/tag/v0.10.1)

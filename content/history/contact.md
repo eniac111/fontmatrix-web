@@ -14,6 +14,7 @@ a #fontmatrix channel at Freenode (we've embedded a webchat client under Fast
 IRC that you can use if you're really unused to IRC thing).
 
 *The Gna! bug tracker and the Freenode channel no longer exist. The mailing
-list is [archived](https://www.mail-archive.com/undertype-users@gna.org/maillist.html).
+list is archived at [The Mail Archive](https://www.mail-archive.com/undertype-users@gna.org/maillist.html),
+and [a copy is kept here](/history/mailing-list/).
 Today, bugs and questions go to the
-[issue tracker on GitHub](https://github.com/eniac111/fontmatrix/issues).*
+[issue tracker on GitHub](https://github.com/fontmatrix/fontmatrix/issues).*
