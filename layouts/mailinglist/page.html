@@ -1,0 +1,19 @@
+{{ define "main" }}
+{{ $thread := where .CurrentSection.Pages.ByDate "Params.thread" .Params.thread }}
+<article class="mail">
+  <h1>{{ .Title }}</h1>
+  <p class="date">{{ .Params.author }} · <time datetime="{{ .Date.Format "2006-01-02T15:04:05-07:00" }}">{{ .Date.Format "2 January 2006, 15:04" }}</time></p>
+  {{ .Params.body | safeHTML }}
+  {{ if gt (len $thread) 1 }}
+  <h2>In this thread</h2>
+  <ul class="entries">
+    {{ range $thread }}
+    <li><time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2 Jan 2006" }}</time> {{ if eq . $ }}<strong>{{ .Params.author }}</strong>{{ else }}<a href="{{ .RelPermalink }}">{{ .Params.author }}</a>{{ end }}</li>
+    {{ end }}
+  </ul>
+  {{ end }}
+  <p class="note">From the undertype-users mailing list at Gna!, as archived by
+  <a href="{{ .Params.original }}">The Mail Archive</a>.
+  <a href="{{ .CurrentSection.RelPermalink }}">All messages</a>.</p>
+</article>
+{{ end }}

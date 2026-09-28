@@ -13,6 +13,10 @@ A push to `main` builds and publishes the site (`.github/workflows/pages.yml`).
 
 - `content/` — the pages; `content/news/` the release notes; `content/history/`
   the pages of the old fontmatrix.be website, recovered from the Internet Archive.
+- `archive/undertype-users/raw/` — the undertype-users mailing list as saved from
+  [The Mail Archive](https://www.mail-archive.com/undertype-users@gna.org/maillist.html),
+  since its home at Gna! is gone. `tools/mailing-list.py` turns it into
+  `content/history/mailing-list/` and `static/history/undertype-users.mbox`.
 - `layouts/`, `assets/style.css` — the templates and the one stylesheet.
 - `static/fonts/` — [Veleka World](https://github.com/eniac111/Veleka) by Stefan
   Peev, under the SIL Open Font License 1.1.

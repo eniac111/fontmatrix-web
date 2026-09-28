@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Re: [Undertype-users] Thought process for Font Management	forFontmatrix</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="apple-touch-icon" sizes="114x114" href="/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="72x72" href="/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-57x57.png">
+<link rel="shortcut icon" href="/favicon.ico">
+<link rel="contents" href="index.html#00021" id="c">
+<link rel="index" href="maillist.html#00021" id="i">
+<link rel="prev" href="msg00020.html" id="p">
+<link rel="next" href="msg00022.html" id="n">
+<link rel="canonical" href="https://www.mail-archive.com/undertype-users@gna.org/msg00021.html">
+<link rel="stylesheet" href="/normalize.css" media="screen">
+<link rel="stylesheet" href="/master.css" media="screen">
+
+<!--[if lt IE 9]>
+<link rel="stylesheet" href="/ie.css" media="screen">
+<![endif]-->
+</head>
+<body>
+<script language="javascript" type="text/javascript">
+document.onkeydown = NavigateThrough;
+function NavigateThrough (event)
+{
+  if (!document.getElementById) return;
+  if (window.event) event = window.event;
+  if (event.target.tagName == 'INPUT') return;
+  if (event.ctrlKey || event.metaKey) return;
+  var link = null;
+  switch (event.keyCode ? event.keyCode : event.which ? event.which : null) {
+    case 74:
+    case 80:
+      link = document.getElementById ('p');
+      break;
+    case 75:
+    case 78:
+      link = document.getElementById ('n');
+      break;
+    case 69:
+      link = document.getElementById ('e');
+      break;
+    }
+  if (link && link.href) document.location = link.href;
+}
+</script>
+<div itemscope itemtype="http://schema.org/Article" class="container">
+<div class="skipLink">
+<a href="#nav">Skip to site navigation (Press enter)</a>
+</div>
+<div class="content" role="main">
+<div class="msgHead">
+<h1>
+<span class="subject"><a href="/search?l=undertype-users@gna.org&amp;q=subject:%22Re%5C%3A+%5C%5BUndertype%5C-users%5C%5D+Thought+process+for+Font+Management%09forFontmatrix%22&amp;o=newest" rel="nofollow"><span itemprop="name">Re: [Undertype-users] Thought process for Font Management	forFontmatrix</span></a></span>
+</h1>
+<p class="darkgray font13">
+<span class="sender pipe"><a href="/search?l=undertype-users@gna.org&amp;q=from:%22Pierre+Marchand%22" rel="nofollow"><span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">Pierre Marchand</span></span></a></span>
+<span class="date"><a href="/search?l=undertype-users@gna.org&amp;q=date:20071217" rel="nofollow">Mon, 17 Dec 2007 14:31:05 -0800</a></span>
+</p>
+</div>
+<div itemprop="articleBody" class="msgBody">
+<!--X-Body-of-Message-->
+<pre>Le Monday 17 December 2007 16:52:45 Timothy Boyden, vous avez écrit :
+&gt; That being said, will Fontmatrix manage the fonts already loaded on the
+&gt; system, or is it strictly limited to per-user font management?</pre><pre>
+
+Hehe, Fontmatrix will do what we need! If it appears clear that a system wide 
+fonts manager is needed, we’ll do it. But keep in mind that such an app is 
+really useful when you have to frequently select fonts set and activate or 
+deactivate it. 
+
+&gt; We are an advertising agency with multiple artists accessing
+&gt; applications like Scribus, Inkscape, and the GIMP using netboot
+&gt; workstations through a Edubuntu LTSP server. For ease of maintenance,
+&gt; all applications and the &quot;base set&quot; of fonts should be managed centrally
+&gt; for all users. Users then can manage their individual preferences for
+&gt; applications and adding temporary fonts as needed.p
+
+It is quite a classical scheme in which Fontmatrix should find its place. In 
+this case, I’d want three level of management.
+1/ System fonts, managed with the distro specific packages manager (apt-get in 
+your case) assure that your apps have needed fonts to display text - here you 
+need wide unicode coverage font but very few families. One with serif, sans 
+and mono variants should be enough in a perfect world.
+2/ Agency &quot;base set&quot;, decided once and rarely changed. You install it in a 
+dedicated directory of your choice and add it to fontconfig : su, cp and vim 
+are your friends here. Because these fonts are allways activated, Fontmatrix 
+seems useless - at least for me.
+3/ User fonts. If each one works alone on a project, Fontmatrix should be used 
+as is. If you need to share tagged sets, I’ll have to write something for 
+that :)
+
+&gt; The Artists are used to Mac workstations in which you need to use and
+&gt; activate all the fonts your going to use each time you log in. This
+&gt; means they have to activate their base set of fonts and then, as needed,
+&gt; add temporary fonts on an ad to ad basis. Productivity wise, for the
+&gt; artists it is quicker to have all the available fonts activated as
+&gt; they're designing their ads then it is to search through a font
+&gt; management app, find the font they need then activate it and go back to
+&gt; designing their ad. Dealing with a long font list in the app is not a
+&gt; problem for them (unless of course the app has a font list limit).
+
+Riku has demonstrated, and coded as well, how to do this without effort. Just 
+filter by tag and &quot;Edit-&gt;Activate all&quot; - if you run trunk, you can do that 
+directly in system tray icon by &quot;right-clicking&quot; and select a tag. The way I 
+see that is it’s much more easy to browse through Fontmatrix collection 
+before you start a project to select fonts and tag them compared to do the 
+same in a not dedicated app. Note that direct tag at import has came back in 
+trunk and will be in 0.3 version.
+
+&gt; As the system administrator though,
+&gt; it would be nice to have a Fontmatrix type app to manage the overall
+&gt; system font configuration. Maybe that is something you guys can
+&gt; consider.
+
+I can, but I won’t do that soon (miss time). As a workaround, you can run 
+fontmatrix as root, select fonts, note their source file and manually copy 
+them in system wide dir. Sorry to not offer more now.
+
+&gt; For now I think we'll have to use the PostScript converted version of
+&gt; the OpenType fonts. I so far can't break the artists of their bad habit
+&gt; of using text in their graphics. And Inkscape and the GIMP don't support
+&gt; OpenType fonts either. Hopefully that support will be built-in soon, but
+&gt; I don't know how to push that with their developers.
+
+Supporting OTF features, although required in my opinion, is hard to offer in 
+a READ-WRITE environment. I  hope Fontmatrix will be an experiencing field 
+for this and work done here could be back at least in Scribus. We’ll see!
+
+-- 
+Pierre Marchand
+<a  rel="nofollow" href="http://www.oep-h.com">http://www.oep-h.com</a>
+
+
+_______________________________________________
+Undertype-users mailing list
+<a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="01546f656473757871642c747264737241666f602f6e7366">[email&#160;protected]</a>
+<a  rel="nofollow" href="https://mail.gna.org/listinfo/undertype-users">https://mail.gna.org/listinfo/undertype-users</a>
+</pre>
+
+</div>
+<div class="msgButtons margintopdouble">
+<ul class="overflow">
+<li class="msgButtonItems"><a class="button buttonleft " accesskey="p" href="msg00020.html">Previous message</a></li>
+<li class="msgButtonItems textaligncenter"><a class="button" accesskey="c" href="index.html#00021">View by thread</a></li>
+<li class="msgButtonItems textaligncenter"><a class="button" accesskey="i" href="maillist.html#00021">View by date</a></li>
+<li class="msgButtonItems textalignright"><a class="button buttonright " accesskey="n" href="msg00022.html">Next message</a></li>
+</ul>
+</div>
+<a name="tslice"></a>
+<div class="tSliceList margintopdouble">
+<ul class="icons monospace">
+<li class="icons-email"><span class="subject"><a href="msg00018.html">[Undertype-users] Thought process for Font Management for ...</a></span> <span class="sender italic">Timothy Boyden</span></li>
+<li><ul>
+<li class="icons-email"><span class="subject"><a href="msg00019.html">Re: [Undertype-users] Thought process for Font Manage...</a></span> <span class="sender italic">Pierre Marchand</span></li>
+<li><ul>
+<li class="icons-email"><span class="subject"><a href="msg00020.html">Re: [Undertype-users] Thought process for Font Ma...</a></span> <span class="sender italic">Timothy Boyden</span></li>
+<li><ul>
+<li class="icons-email tSliceCur"><span class="subject">Re: [Undertype-users] Thought process for Fon...</span> <span class="sender italic">Pierre Marchand</span></li>
+</ul></li>
+<li class="icons-email"><span class="subject"><a href="msg00022.html">Re: [Undertype-users] Thought process for Font Ma...</a></span> <span class="sender italic">Pierre Marchand</span></li>
+</ul>
+</ul>
+</ul>
+</div>
+<div class="overflow msgActions margintopdouble">
+<div class="msgReply" >
+<h2>
+					Reply via email to
+</h2>
+<form method="POST" action="/mailto.php">
+<input type="hidden" name="subject" value="Re: [Undertype-users] Thought process for Font Management	forFontmatrix">
+<input type="hidden" name="msgid" value="200712172338.08925.pierremarc@oep-h.com">
+<input type="hidden" name="relpath" value="undertype-users@gna.org/msg00021.html">
+<input type="submit" value=" Pierre Marchand ">
+</form>
+</div>
+</div>
+</div>
+<div class="aside" role="complementary">
+<div class="logo">
+<a href="/"><img src="/logo.png" width=247 height=88 alt="The Mail Archive"></a>
+</div>
+<form class="overflow" action="/search" method="get">
+<input type="hidden" name="l" value="undertype-users@gna.org">
+<label class="hidden" for="q">Search the site</label>
+<input class="submittext" type="text" id="q" name="q" placeholder="Search undertype-users">
+<input class="submitbutton" name="submit" type="image" src="/submit.png" alt="Submit">
+</form>
+<div class="nav margintop" id="nav" role="navigation">
+<ul class="icons font16">
+<li class="icons-home"><a href="/">The Mail Archive home</a></li>
+<li class="icons-list"><a href="/undertype-users@gna.org/">undertype-users - all messages</a></li>
+<li class="icons-about"><a href="/undertype-users@gna.org/info.html">undertype-users - about the list</a></li>
+<li class="icons-expand"><a href="/search?l=undertype-users@gna.org&amp;q=subject:%22Re%5C%3A+%5C%5BUndertype%5C-users%5C%5D+Thought+process+for+Font+Management%09forFontmatrix%22&amp;o=newest&amp;f=1" title="e" id="e">Expand</a></li>
+<li class="icons-prev"><a href="msg00020.html" title="p">Previous message</a></li>
+<li class="icons-next"><a href="msg00022.html" title="n">Next message</a></li>
+</ul>
+</div>
+<div class="listlogo margintopdouble">
+
+</div>
+<div class="margintopdouble">
+
+</div>
+</div>
+</div>
+<div class="footer" role="contentinfo">
+<ul>
+<li><a href="/">The Mail Archive home</a></li>
+<li><a href="/faq.html#newlist">Add your mailing list</a></li>
+<li><a href="/faq.html">FAQ</a></li>
+<li><a href="/faq.html#support">Support</a></li>
+<li><a href="/faq.html#privacy">Privacy</a></li>
+<li class="darkgray"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="5664666661676467616465656e78666e6f646378263f332424333b372435163933267b3e7835393b">[email&#160;protected]</a></li>
+</ul>
+</div>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a423d712cc96e1b8',t:'MTc5MDYwOTk1OA=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>

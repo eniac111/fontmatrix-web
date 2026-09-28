@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Re: [Undertype-users] Search fonts</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="apple-touch-icon" sizes="114x114" href="/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="72x72" href="/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-57x57.png">
+<link rel="shortcut icon" href="/favicon.ico">
+<link rel="contents" href="index.html#00074" id="c">
+<link rel="index" href="maillist.html#00074" id="i">
+<link rel="prev" href="msg00073.html" id="p">
+<link rel="next" href="msg00077.html" id="n">
+<link rel="canonical" href="https://www.mail-archive.com/undertype-users@gna.org/msg00074.html">
+<link rel="stylesheet" href="/normalize.css" media="screen">
+<link rel="stylesheet" href="/master.css" media="screen">
+
+<!--[if lt IE 9]>
+<link rel="stylesheet" href="/ie.css" media="screen">
+<![endif]-->
+</head>
+<body>
+<script language="javascript" type="text/javascript">
+document.onkeydown = NavigateThrough;
+function NavigateThrough (event)
+{
+  if (!document.getElementById) return;
+  if (window.event) event = window.event;
+  if (event.target.tagName == 'INPUT') return;
+  if (event.ctrlKey || event.metaKey) return;
+  var link = null;
+  switch (event.keyCode ? event.keyCode : event.which ? event.which : null) {
+    case 74:
+    case 80:
+      link = document.getElementById ('p');
+      break;
+    case 75:
+    case 78:
+      link = document.getElementById ('n');
+      break;
+    case 69:
+      link = document.getElementById ('e');
+      break;
+    }
+  if (link && link.href) document.location = link.href;
+}
+</script>
+<div itemscope itemtype="http://schema.org/Article" class="container">
+<div class="skipLink">
+<a href="#nav">Skip to site navigation (Press enter)</a>
+</div>
+<div class="content" role="main">
+<div class="msgHead">
+<h1>
+<span class="subject"><a href="/search?l=undertype-users@gna.org&amp;q=subject:%22Re%5C%3A+%5C%5BUndertype%5C-users%5C%5D+Search+fonts%22&amp;o=newest" rel="nofollow"><span itemprop="name">Re: [Undertype-users] Search fonts</span></a></span>
+</h1>
+<p class="darkgray font13">
+<span class="sender pipe"><a href="/search?l=undertype-users@gna.org&amp;q=from:%22Pierre+Marchand%22" rel="nofollow"><span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">Pierre Marchand</span></span></a></span>
+<span class="date"><a href="/search?l=undertype-users@gna.org&amp;q=date:20080429" rel="nofollow">Tue, 29 Apr 2008 09:08:47 -0700</a></span>
+</p>
+</div>
+<div itemprop="articleBody" class="msgBody">
+<!--X-Body-of-Message-->
+<pre>Vous (The Peach) avez écrit :
+&gt; About tagging: I should do it, little by little. For the public database I
+&gt; think an ontologic db seems quite interesting.</pre><pre>
+
+It is indeed, but beyond the Fontmatrix purpose. Or done by a new contributor. 
+
+&gt; Ok, but it seems like I have some problems with fontforge:
+&gt;
+&gt; $ fontforge /usr/share/fonts/TTF/averoigne.TTF
+&gt; Copyright (c) 2000-2008 by George Williams.
+&gt;  Executable based on sources from 16:34 GMT 30-Mar-2008.
+&gt;  Library based on sources from 15:57 GMT 30-Mar-2008.
+&gt; Error attempting to load font:
+&gt;   -monotype-almanac mt-medium-r-normal--14-0-0-0-p-0-iso10646-1
+
+Seems you have played too much with your system fonts :)
+
+&gt; The X Server clained the font existed, but when I asked for it,
+&gt; I got this error instead:
+&gt;
+&gt; X Error of failed request: BadValue (integer parameter out of range for
+&gt; operation) Major opcode of failed request:  45.0 (X_OpenFont)
+&gt;   Serial number of failed request:  727
+&gt;   Failed resource ID:  36000b4
+&gt; Aborted
+
+It’s a Fontforge error and I’m not the best person to fix it. Googling a bit I 
+found that 
+=============================================
+Re: Question Regarding Why FontForge on Solaris 9 Is Dying
+From: George Williams &lt;[EMAIL PROTECTED]&gt; - 2005-01-26 13:18
+On Wed, 2005-01-26 at 06:46, Linnabary, Paul wrote:
+&gt; From what I can interpret, the problem may lie
+&gt; within the following messages: insmod wacom - Error attempting to load
+&gt; font. The X server claimed the font existed, but when I asked for it, I
+&gt; got this error instead - xInputExtensionx Error of failed request: %s.
+&gt; Server claimed fonts existed in the font list, but when I asked for it,
+&gt; there was nothing. I think I&quot;ll crash soon&quot;.
+Generally the error &quot;Server claimed fonts existed in the font list, but
+when I asked for it, there was nothing&quot; means that you have a fonts.dir
+file which has an entry that points to a font file that does not exist
+(or is not readable to the font server/X server).
+
+The solution is generally to remake your fonts.dir files, or reprotect
+your font files (and any directories leading up to them) so that your
+font server has access to them.
+
+ff is supposed to print out the name of the font (not the font file
+name, but the name as presented by xlsfonts) to help you track the error
+down.
+[...]
+=============================================
+
+&gt; apart from this I've noticed that most of the fonts that don't display
+&gt; correctly have glyphs listed only under &quot;Un-mapped Glyphs&quot;. These are not
+&gt; only signs fonts, but also character fonts.
+
+Consider that such fonts can’t be normally used. In fact most  programs won’t 
+let you access these un-mapped (means they’re not referenced in Unicode 
+charmap) glyphs. You can check the charmaps present or computed for a font in 
+the sub-header of the &quot;Informations&quot; tab. FYI, Scribus will even discard 
+fonts which have not a Unicode charmap, I don’t know for OOo - will check 
+later.
+
+&gt; Another strange issue I have is with Arial: this font renders correctly on
+&gt; Fontmatrix but in Openoffice is rendered as &quot;Planet X&quot; font. I don't know
+&gt; what is causing this.
+
+Odd, Arial is not known to have issues, but the size of ArialUni.
+
+&gt; infact it happened that this behaviour leaded to a segfault. I'll open a
+&gt; bugreport asap.
+
+Thanks
+
+&gt; PS: is it possible to add a popup when you place the cursor over i.e. the
+&gt; font path if it's half hidden? So I don't have to expand it to see where is
+&gt; that font.
+
+Done! Thanks for the idea
+
+
+-- 
+Pierre Marchand
+<a  rel="nofollow" href="http://www.oep-h.com">http://www.oep-h.com</a>
+
+
+_______________________________________________
+Undertype-users mailing list
+<a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="c89da6acadbabcb1b8ade5bdbbadbabb88afa6a9e6a7baaf">[email&#160;protected]</a>
+<a  rel="nofollow" href="https://mail.gna.org/listinfo/undertype-users">https://mail.gna.org/listinfo/undertype-users</a>
+</pre>
+
+</div>
+<div class="msgButtons margintopdouble">
+<ul class="overflow">
+<li class="msgButtonItems"><a class="button buttonleft " accesskey="p" href="msg00073.html">Previous message</a></li>
+<li class="msgButtonItems textaligncenter"><a class="button" accesskey="c" href="index.html#00074">View by thread</a></li>
+<li class="msgButtonItems textaligncenter"><a class="button" accesskey="i" href="maillist.html#00074">View by date</a></li>
+<li class="msgButtonItems textalignright"><a class="button buttonright " accesskey="n" href="msg00077.html">Next message</a></li>
+</ul>
+</div>
+<a name="tslice"></a>
+<div class="tSliceList margintopdouble">
+<ul class="icons monospace">
+<li class="icons-email"><span class="subject"><a href="msg00066.html">[Undertype-users] Search fonts</a></span> <span class="sender italic">The Peach</span></li>
+<li><ul>
+<li class="icons-email"><span class="subject"><a href="msg00067.html">Re: [Undertype-users] Search fonts</a></span> <span class="sender italic">Pierre Marchand</span></li>
+<li><ul>
+<li class="icons-email"><span class="subject"><a href="msg00068.html">Re: [Undertype-users] Search fonts</a></span> <span class="sender italic">The Peach</span></li>
+<li><ul>
+<li class="icons-email"><span class="subject"><a href="msg00069.html">Re: [Undertype-users] Search fonts</a></span> <span class="sender italic">Pierre Marchand</span></li>
+<li><ul>
+<li class="icons-email"><span class="subject"><a href="msg00073.html">Re: [Undertype-users] Search fonts</a></span> <span class="sender italic">The Peach</span></li>
+<li><ul>
+<li class="icons-email tSliceCur"><span class="subject">Re: [Undertype-users] Search fonts</span> <span class="sender italic">Pierre Marchand</span></li>
+<li><ul>
+<li class="icons-email"><span class="subject"><a href="msg00077.html">Re: [Undertype-users] Search fon...</a></span> <span class="sender italic">The Peach</span></li>
+<li class="icons-email"><span class="subject"><a href="msg00080.html">Re: [Undertype-users] Search fon...</a></span> <span class="sender italic">The Peach</span></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li class="icons-email"><span class="subject"><a href="msg00070.html">Re: [Undertype-users] Search fonts</a></span> <span class="sender italic">Pierre Marchand</span></li>
+<li class="icons-email"><span class="subject"><a href="msg00083.html">Re: [Undertype-users] Search fonts</a></span> <span class="sender italic">The Peach</span></li>
+<li><ul>
+<li class="icons-email"><span class="subject"><a href="msg00084.html">Re: [Undertype-users] Search fonts</a></span> <span class="sender italic">Pierre Marchand</span></li>
+</ul>
+</ul>
+</ul>
+</ul>
+</div>
+<div class="overflow msgActions margintopdouble">
+<div class="msgReply" >
+<h2>
+					Reply via email to
+</h2>
+<form method="POST" action="/mailto.php">
+<input type="hidden" name="subject" value="Re: [Undertype-users] Search fonts">
+<input type="hidden" name="msgid" value="200804291808.26660.pierremarc@oep-h.com">
+<input type="hidden" name="relpath" value="undertype-users@gna.org/msg00074.html">
+<input type="submit" value=" Pierre Marchand ">
+</form>
+</div>
+</div>
+</div>
+<div class="aside" role="complementary">
+<div class="logo">
+<a href="/"><img src="/logo.png" width=247 height=88 alt="The Mail Archive"></a>
+</div>
+<form class="overflow" action="/search" method="get">
+<input type="hidden" name="l" value="undertype-users@gna.org">
+<label class="hidden" for="q">Search the site</label>
+<input class="submittext" type="text" id="q" name="q" placeholder="Search undertype-users">
+<input class="submitbutton" name="submit" type="image" src="/submit.png" alt="Submit">
+</form>
+<div class="nav margintop" id="nav" role="navigation">
+<ul class="icons font16">
+<li class="icons-home"><a href="/">The Mail Archive home</a></li>
+<li class="icons-list"><a href="/undertype-users@gna.org/">undertype-users - all messages</a></li>
+<li class="icons-about"><a href="/undertype-users@gna.org/info.html">undertype-users - about the list</a></li>
+<li class="icons-expand"><a href="/search?l=undertype-users@gna.org&amp;q=subject:%22Re%5C%3A+%5C%5BUndertype%5C-users%5C%5D+Search+fonts%22&amp;o=newest&amp;f=1" title="e" id="e">Expand</a></li>
+<li class="icons-prev"><a href="msg00073.html" title="p">Previous message</a></li>
+<li class="icons-next"><a href="msg00077.html" title="n">Next message</a></li>
+</ul>
+</div>
+<div class="listlogo margintopdouble">
+
+</div>
+<div class="margintopdouble">
+
+</div>
+</div>
+</div>
+<div class="footer" role="contentinfo">
+<ul>
+<li><a href="/">The Mail Archive home</a></li>
+<li><a href="/faq.html#newlist">Add your mailing list</a></li>
+<li><a href="/faq.html">FAQ</a></li>
+<li><a href="/faq.html#support">Support</a></li>
+<li><a href="/faq.html#privacy">Privacy</a></li>
+<li class="darkgray"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="102220202820242229212820283e22262626203e6079756262757d716273507f75603d783e737f7d">[email&#160;protected]</a></li>
+</ul>
+</div>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a423d7fc7ae91a65',t:'MTc5MDYwOTk5Ng=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>

@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Re: [Undertype-users] Ctrl+Q and another idea</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="apple-touch-icon" sizes="114x114" href="/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="72x72" href="/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-57x57.png">
+<link rel="shortcut icon" href="/favicon.ico">
+<link rel="contents" href="index.html#00010" id="c">
+<link rel="index" href="maillist.html#00010" id="i">
+<link rel="prev" href="msg00006.html" id="p">
+<link rel="next" href="msg00012.html" id="n">
+<link rel="canonical" href="https://www.mail-archive.com/undertype-users@gna.org/msg00010.html">
+<link rel="stylesheet" href="/normalize.css" media="screen">
+<link rel="stylesheet" href="/master.css" media="screen">
+
+<!--[if lt IE 9]>
+<link rel="stylesheet" href="/ie.css" media="screen">
+<![endif]-->
+</head>
+<body>
+<script language="javascript" type="text/javascript">
+document.onkeydown = NavigateThrough;
+function NavigateThrough (event)
+{
+  if (!document.getElementById) return;
+  if (window.event) event = window.event;
+  if (event.target.tagName == 'INPUT') return;
+  if (event.ctrlKey || event.metaKey) return;
+  var link = null;
+  switch (event.keyCode ? event.keyCode : event.which ? event.which : null) {
+    case 74:
+    case 80:
+      link = document.getElementById ('p');
+      break;
+    case 75:
+    case 78:
+      link = document.getElementById ('n');
+      break;
+    case 69:
+      link = document.getElementById ('e');
+      break;
+    }
+  if (link && link.href) document.location = link.href;
+}
+</script>
+<div itemscope itemtype="http://schema.org/Article" class="container">
+<div class="skipLink">
+<a href="#nav">Skip to site navigation (Press enter)</a>
+</div>
+<div class="content" role="main">
+<div class="msgHead">
+<h1>
+<span class="subject"><a href="/search?l=undertype-users@gna.org&amp;q=subject:%22Re%5C%3A+%5C%5BUndertype%5C-users%5C%5D+Ctrl%5C%2BQ+and+another+idea%22&amp;o=newest" rel="nofollow"><span itemprop="name">Re: [Undertype-users] Ctrl+Q and another idea</span></a></span>
+</h1>
+<p class="darkgray font13">
+<span class="sender pipe"><a href="/search?l=undertype-users@gna.org&amp;q=from:%22Pierre+Marchand%22" rel="nofollow"><span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">Pierre Marchand</span></span></a></span>
+<span class="date"><a href="/search?l=undertype-users@gna.org&amp;q=date:20071211" rel="nofollow">Tue, 11 Dec 2007 01:58:17 -0800</a></span>
+</p>
+</div>
+<div itemprop="articleBody" class="msgBody">
+<!--X-Body-of-Message-->
+<pre>Le Tuesday 11 December 2007 04:05:08, vous avez écrit :
+&gt; Hi,
+&gt;
+&gt; Sorry to bother you via email but i'll be awfully busy this week and am not
+&gt; sure if I'll have time to spend on irc. </pre><pre>
+
+No problem, but since it’s related to Fontmatrix, I allow myself to CC to 
+fontmatrix mailing-list.
+
+&gt;                                           Ctrl+Q is working ok here. Does it 
+&gt; work for you right after you've launched fontmatrix? Could you let me know
+&gt; what steps do you take in fontmatrix to get it not to work?
+
+1/ I removed ~/.config/Undertype/fontmatrix.conf
+2/ I ran Fontmatrix and tried to exit with Ctrl+Q and  it worked
+3/ I ran it again, set &quot;show in systray&quot; and then Ctrl+Q popup the message 
+box &quot;The program will keep ...&quot; and Fontmatrix minimized in systray.
+4/ After that, Ctrl+Q always minimized rather than exited.
+5/ I updated my working directory
+6/ removed ~/.config/Undertype/fontmatrix.conf
+7/ ran Fontmatrix
+8/ fire the prefs panel and...
+9/ I just see the &quot;close to system tray&quot; checkbox, shame one me /o\
+Sorry to have bothered you with invalid issue.
+
+&gt;
+&gt; I've also been thinking about font directories that fontmatrix would watch
+&gt; for new fonts. This would be useful now that we can have FM sit in the
+&gt; system tray away from distracting user (a little bit like a daemon). In the
+&gt; preferences a user could add directories for what we'd install a
+&gt; QFileSystemWatcher and whenever there will be new fonts available to those
+&gt; listed directories FM would notify a user and ask if those should be
+&gt; imported. What do you think about this?
+
+I think it will be easy to do two things:
+ -- offer to users a choice (at import) between:
+        - copy font files in dedicated directory;
+        - just register directory without copy files out.
+ -- offer to developpers a rescan() method.
+
+About monitoring a font dir, I think It would be good.
+The same for &quot;live&quot; font activation which would be very cool, I continue to be 
+hesitating between writing all in Fontmatrix frame and expect all apps to 
+plug into Fm system to offer their users this very cool feature, or meet 
+almost everybody in this field, particulary Fontconfig &amp; Freedesktop, to ask 
+them (with a lot of politeness in it :)) to elaborate such a system and then 
+having an external and, for sure, better designed font management backend. 
+What do you think?
+
+&gt; greetings
+&gt; Riku
+
+
+
+-- 
+Pierre Marchand
+<a  rel="nofollow" href="http://www.oep-h.com">http://www.oep-h.com</a>
+
+
+_______________________________________________
+Undertype-users mailing list
+<a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="7c291218190e08050c1951090f190e0f3c1b121d52130e1b">[email&#160;protected]</a>
+<a  rel="nofollow" href="https://mail.gna.org/listinfo/undertype-users">https://mail.gna.org/listinfo/undertype-users</a>
+</pre>
+
+</div>
+<div class="msgButtons margintopdouble">
+<ul class="overflow">
+<li class="msgButtonItems"><a class="button buttonleft " accesskey="p" href="msg00006.html">Previous message</a></li>
+<li class="msgButtonItems textaligncenter"><a class="button" accesskey="c" href="index.html#00010">View by thread</a></li>
+<li class="msgButtonItems textaligncenter"><a class="button" accesskey="i" href="maillist.html#00010">View by date</a></li>
+<li class="msgButtonItems textalignright"><a class="button buttonright " accesskey="n" href="msg00012.html">Next message</a></li>
+</ul>
+</div>
+<a name="tslice"></a>
+<div class="tSliceList margintopdouble">
+<ul class="icons monospace">
+
+</ul>
+</div>
+<div class="overflow msgActions margintopdouble">
+<div class="msgReply" >
+<h2>
+					Reply via email to
+</h2>
+<form method="POST" action="/mailto.php">
+<input type="hidden" name="subject" value="Re: [Undertype-users] Ctrl+Q and another idea">
+<input type="hidden" name="msgid" value="200712111104.31730.pierremarc@oep-h.com">
+<input type="hidden" name="relpath" value="undertype-users@gna.org/msg00010.html">
+<input type="submit" value=" Pierre Marchand ">
+</form>
+</div>
+</div>
+</div>
+<div class="aside" role="complementary">
+<div class="logo">
+<a href="/"><img src="/logo.png" width=247 height=88 alt="The Mail Archive"></a>
+</div>
+<form class="overflow" action="/search" method="get">
+<input type="hidden" name="l" value="undertype-users@gna.org">
+<label class="hidden" for="q">Search the site</label>
+<input class="submittext" type="text" id="q" name="q" placeholder="Search undertype-users">
+<input class="submitbutton" name="submit" type="image" src="/submit.png" alt="Submit">
+</form>
+<div class="nav margintop" id="nav" role="navigation">
+<ul class="icons font16">
+<li class="icons-home"><a href="/">The Mail Archive home</a></li>
+<li class="icons-list"><a href="/undertype-users@gna.org/">undertype-users - all messages</a></li>
+<li class="icons-about"><a href="/undertype-users@gna.org/info.html">undertype-users - about the list</a></li>
+<li class="icons-expand"><a href="/search?l=undertype-users@gna.org&amp;q=subject:%22Re%5C%3A+%5C%5BUndertype%5C-users%5C%5D+Ctrl%5C%2BQ+and+another+idea%22&amp;o=newest&amp;f=1" title="e" id="e">Expand</a></li>
+<li class="icons-prev"><a href="msg00006.html" title="p">Previous message</a></li>
+<li class="icons-next"><a href="msg00012.html" title="n">Next message</a></li>
+</ul>
+</div>
+<div class="listlogo margintopdouble">
+
+</div>
+<div class="margintopdouble">
+
+</div>
+</div>
+</div>
+<div class="footer" role="contentinfo">
+<ul>
+<li><a href="/">The Mail Archive home</a></li>
+<li><a href="/faq.html#newlist">Add your mailing list</a></li>
+<li><a href="/faq.html">FAQ</a></li>
+<li><a href="/faq.html#support">Support</a></li>
+<li><a href="/faq.html#privacy">Privacy</a></li>
+<li class="darkgray"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="e3d1d3d3d4d2d1d2d2d2d2d3d7cdd0d2d4d0d3cd938a869191868e829180a38c8693ce8bcd808c8e">[email&#160;protected]</a></li>
+</ul>
+</div>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a423d6e2790ea43d',t:'MTc5MDYwOTk1MQ=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
