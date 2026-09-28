@@ -42,5 +42,5 @@ The PythonQt scripting engine, the QtWebEngine help browser, the embedded copies
 of HarfBuzz and libhyphen (the system libraries are used now), and the ICU,
 m17n and Pango shapers.
 
-The [full release notes](https://github.com/eniac111/fontmatrix/releases/tag/v1.0.0)
+The [full release notes](https://github.com/fontmatrix/fontmatrix/releases/tag/v1.0.0)
 list every change, including the bug fixes and the packaging work.

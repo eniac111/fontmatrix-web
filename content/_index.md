@@ -33,5 +33,5 @@ a job needs are in their menus. It runs on Linux and Windows.
 ## Get in touch
 
 Bug reports, questions and patches go to the
-[issue tracker on GitHub](https://github.com/eniac111/fontmatrix/issues).
+[issue tracker on GitHub](https://github.com/fontmatrix/fontmatrix/issues).
 Fontmatrix is translated with gettext; new translations are welcome.

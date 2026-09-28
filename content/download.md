@@ -4,12 +4,12 @@ description: Get Fontmatrix for Linux or Windows, or build it from source.
 ---
 
 The current release is **Fontmatrix 1.0.0**. All files are on the
-[release page on GitHub](https://github.com/eniac111/fontmatrix/releases/latest).
+[release page on GitHub](https://github.com/fontmatrix/fontmatrix/releases/latest).
 
 ## Linux
 
 **Flatpak bundle.** Download `fontmatrix-1.0.0.flatpak` from the
-[release page](https://github.com/eniac111/fontmatrix/releases/latest) and
+[release page](https://github.com/fontmatrix/fontmatrix/releases/latest) and
 install it with:
 
 ```
@@ -28,7 +28,7 @@ too, but Flathub still ships the older 0.9.100 release for now.
 
 Download `fontmatrix-1.0.0-windows-cl-msvc2022-x86_64.exe` (installer) or the
 `.7z` archive (no installation) from the
-[release page](https://github.com/eniac111/fontmatrix/releases/latest).
+[release page](https://github.com/fontmatrix/fontmatrix/releases/latest).
 Each file has a `.sha256` checksum next to it.
 
 ## macOS
@@ -43,12 +43,12 @@ HarfBuzz, zlib and libhyphen. PoDoFo (PDF font extraction) and Fontconfig are
 optional.
 
 ```
-git clone https://github.com/eniac111/fontmatrix.git
+git clone https://github.com/fontmatrix/fontmatrix.git
 cd fontmatrix
 cmake -B build -G Ninja -DCMAKE_BUILD_TYPE=Release
 ninja -C build
 sudo ninja -C build install
 ```
 
-See [INSTALL.md](https://github.com/eniac111/fontmatrix/blob/master/INSTALL.md)
+See [INSTALL.md](https://github.com/fontmatrix/fontmatrix/blob/master/INSTALL.md)
 for the details.

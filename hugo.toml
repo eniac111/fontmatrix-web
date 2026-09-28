@@ -13,7 +13,7 @@ section = ["html", "rss"]
 
 [params]
 description = "Fontmatrix is a free font manager for Linux and Windows: organise, inspect and compare your fonts."
-repo = "https://github.com/eniac111/fontmatrix"
+repo = "https://github.com/fontmatrix/fontmatrix"
 flathub = "https://flathub.org/apps/details/com.github.fontmatrix.Fontmatrix"
 
 [[menus.main]]
@@ -34,7 +34,7 @@ pageRef = "/history"
 weight = 40
 [[menus.main]]
 name = "Source code"
-url = "https://github.com/eniac111/fontmatrix"
+url = "https://github.com/fontmatrix/fontmatrix"
 weight = 50
 
 [markup.goldmark.renderer]

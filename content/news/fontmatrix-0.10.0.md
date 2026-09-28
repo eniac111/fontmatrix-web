@@ -10,4 +10,4 @@ A development release, not meant for everyday use: it still has many bugs.
 - New Windows builds.
 - Standard XDG directories on Linux.
 
-[Release page](https://github.com/eniac111/fontmatrix/releases/tag/v0.10.0)
+[Release page](https://github.com/fontmatrix/fontmatrix/releases/tag/v0.10.0)

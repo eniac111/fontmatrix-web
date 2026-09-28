@@ -1,6 +1,6 @@
 # fontmatrix.l10n-bg.dev
 
-The website of [Fontmatrix](https://github.com/eniac111/fontmatrix), built with
+The website of [Fontmatrix](https://github.com/fontmatrix/fontmatrix), built with
 [Hugo](https://gohugo.io/) and published on GitHub Pages at
 <https://fontmatrix.l10n-bg.dev/>.
 
