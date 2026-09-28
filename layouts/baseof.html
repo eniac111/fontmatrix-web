@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="{{ site.Language.Locale }}">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ if .IsHome }}{{ site.Title }} — font manager{{ else }}{{ .Title }} · {{ site.Title }}{{ end }}</title>
+<meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ with .Summary }}{{ . | plainify | truncate 160 }}{{ else }}{{ site.Params.description }}{{ end }}{{ end }}">
+<link rel="canonical" href="{{ .Permalink }}">
+<link rel="icon" href="{{ "images/fontmatrix.svg" | relURL }}" type="image/svg+xml">
+<link rel="preload" href="{{ "fonts/VelekaWorld-Regular.woff2" | relURL }}" as="font" type="font/woff2" crossorigin>
+{{ with site.GetPage "/news" }}{{ with .OutputFormats.Get "rss" }}<link rel="alternate" type="application/rss+xml" href="{{ .RelPermalink }}" title="{{ site.Title }} news">{{ end }}{{ end }}
+{{ $css := resources.Get "style.css" | minify | fingerprint }}
+<link rel="stylesheet" href="{{ $css.RelPermalink }}" integrity="{{ $css.Data.Integrity }}">
+</head>
+<body>
+<header class="site">
+  <a class="brand" href="{{ "/" | relURL }}"><img src="{{ "images/fontmatrix.svg" | relURL }}" alt="" width="32" height="32">Fontmatrix</a>
+  <nav>
+    {{ range site.Menus.main }}
+    <a href="{{ .URL }}"{{ if or ($.IsMenuCurrent "main" .) ($.HasMenuCurrent "main" .) }} aria-current="page"{{ end }}>{{ .Name }}</a>
+    {{ end }}
+  </nav>
+</header>
+<main>
+{{ block "main" . }}{{ end }}
+</main>
+<footer class="site">
+  <p>Fontmatrix is free software under the <a href="https://www.gnu.org/licenses/old-licenses/gpl-2.0.html">GNU GPL, version 2 or later</a>.
+  Bugs and questions: <a href="{{ site.Params.repo }}/issues">GitHub issues</a>.</p>
+</footer>
+</body>
+</html>

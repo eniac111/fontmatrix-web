@@ -1,0 +1,16 @@
+{{ define "main" }}
+<h1>{{ .Title }}</h1>
+{{ .Content }}
+<h2>Pages of the old site</h2>
+<ul class="entries pages">
+  {{ range where .Pages.ByWeight "Params.kind" "page" }}
+  <li><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>{{ with .Description }}<p>{{ . }}</p>{{ end }}</li>
+  {{ end }}
+</ul>
+<h2>News, 2008–2011</h2>
+<ul class="entries">
+  {{ range where .Pages "Params.kind" "news" }}
+  <li><time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2 Jan 2006" }}</time> <a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></li>
+  {{ end }}
+</ul>
+{{ end }}

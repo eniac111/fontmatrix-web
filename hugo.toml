@@ -1,0 +1,45 @@
+# SPDX-FileCopyrightText: 2026 Blagovest Petrov <blagovest@petrovs.info>
+# SPDX-License-Identifier: GPL-2.0-or-later
+
+baseURL = "https://fontmatrix.l10n-bg.dev/"
+locale = "en"
+title = "Fontmatrix"
+disableKinds = ["taxonomy", "term"]
+enableRobotsTXT = true
+
+[outputs]
+home = ["html"]
+section = ["html", "rss"]
+
+[params]
+description = "Fontmatrix is a free font manager for Linux and Windows: organise, inspect and compare your fonts."
+repo = "https://github.com/eniac111/fontmatrix"
+flathub = "https://flathub.org/apps/details/com.github.fontmatrix.Fontmatrix"
+
+[[menus.main]]
+name = "About"
+pageRef = "/"
+weight = 10
+[[menus.main]]
+name = "Download"
+pageRef = "/download"
+weight = 20
+[[menus.main]]
+name = "News"
+pageRef = "/news"
+weight = 30
+[[menus.main]]
+name = "History"
+pageRef = "/history"
+weight = 40
+[[menus.main]]
+name = "Source code"
+url = "https://github.com/eniac111/fontmatrix"
+weight = 50
+
+[markup.goldmark.renderer]
+unsafe = true
+
+[markup.highlight]
+noClasses = false
+codeFences = false

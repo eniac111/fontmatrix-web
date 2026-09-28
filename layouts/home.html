@@ -1,0 +1,22 @@
+{{ define "main" }}
+<section class="intro">
+  <h1>Fontmatrix</h1>
+  <p class="lead">{{ .Params.lead }}</p>
+  <p class="actions">
+    <a class="button" href="{{ "download/" | relURL }}">Download</a>
+    <a href="{{ site.Params.repo }}">Source code</a>
+  </p>
+</section>
+<figure class="shot">
+  <img src="{{ "images/family.png" | relURL }}" alt="Fontmatrix showing a font family with its sample text" width="1280" height="800">
+</figure>
+{{ .Content }}
+{{ with site.GetPage "/news" }}
+<h2>News</h2>
+<ul class="entries">
+  {{ range first 3 .Pages }}
+  <li><time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2 Jan 2006" }}</time> <a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></li>
+  {{ end }}
+</ul>
+{{ end }}
+{{ end }}

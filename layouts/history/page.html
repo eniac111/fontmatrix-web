@@ -1,0 +1,10 @@
+{{ define "main" }}
+<article>
+  <h1>{{ .Title }}</h1>
+  <p class="date">{{ if .Params.undated }}Undated{{ else }}<time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2 January 2006" }}</time>{{ end }}{{ with .Params.author }} · {{ . }}{{ end }}</p>
+  {{ .Content }}
+  <p class="note">From the old Fontmatrix website: the text as it was written, with links to archived copies where the originals are gone.
+  {{ with .Params.original }}<a href="https://web.archive.org/web/2011/{{ . }}">Archived original</a>.{{ end }}
+  <a href="{{ "history/" | relURL }}">All old pages</a>.</p>
+</article>
+{{ end }}

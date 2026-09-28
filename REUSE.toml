@@ -1,0 +1,22 @@
+# SPDX-FileCopyrightText: none
+# SPDX-License-Identifier: CC0-1.0
+version = 1
+
+# The pages under content/history/ and the images under static/history/ come from the old
+# fontmatrix.be site and are not covered here.
+[[annotations]]
+path = [
+    "hugo.toml", "layouts/**", "assets/**", "README.md", "static/CNAME",
+    "content/_index.md", "content/download.md", "content/news/**",
+    "content/history/_index.md", "static/images/**",
+]
+precedence = "closest"
+SPDX-FileCopyrightText = "2007-2026 Pierre Marchand and the Fontmatrix contributors"
+SPDX-License-Identifier = "GPL-2.0-or-later"
+
+# Veleka World, the typeface of the site
+[[annotations]]
+path = ["static/fonts/**"]
+precedence = "closest"
+SPDX-FileCopyrightText = ["2016-2026 Stefan Peev, Context Ltd", "1997-2014 SIL International"]
+SPDX-License-Identifier = "OFL-1.1"

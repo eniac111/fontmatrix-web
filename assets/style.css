@@ -1,0 +1,114 @@
+/* SPDX-FileCopyrightText: 2026 Blagovest Petrov <blagovest@petrovs.info>
+   SPDX-License-Identifier: GPL-2.0-or-later */
+
+@font-face {
+  font-family: "Veleka World";
+  src: url("/fonts/VelekaWorld-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Veleka World";
+  src: url("/fonts/VelekaWorld-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --paper: #fbfaf6;
+  --ink: #1d1c1a;
+  --muted: #6b6760;
+  --rule: #dcd8cf;
+  --accent: #9b2c1f;
+  --code: #f0ede5;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --paper: #1b1a18;
+    --ink: #e9e5dc;
+    --muted: #a39e94;
+    --rule: #3a3833;
+    --accent: #e48a73;
+    --code: #2a2825;
+    color-scheme: dark;
+  }
+}
+
+* { box-sizing: border-box; }
+
+html {
+  font: 400 1.1875rem/1.6 "Veleka World", Georgia, serif;
+  font-feature-settings: "kern", "liga", "onum";
+  -webkit-text-size-adjust: 100%;
+}
+body {
+  margin: 0 auto;
+  max-width: 44rem;
+  padding: 0 1rem;
+  background: var(--paper);
+  color: var(--ink);
+}
+
+h1, h2, h3 { font-weight: 700; line-height: 1.2; margin: 2rem 0 .75rem; }
+h1 { font-size: 2.2rem; }
+h2 { font-size: 1.45rem; }
+h3 { font-size: 1.15rem; }
+
+a { color: var(--accent); text-underline-offset: .15em; }
+img { max-width: 100%; height: auto; }
+code, pre { font: .85em/1.5 ui-monospace, "DejaVu Sans Mono", monospace; background: var(--code); }
+code { padding: .1em .25em; border-radius: 3px; }
+pre { padding: .75rem 1rem; overflow-x: auto; border-radius: 4px; }
+pre code { padding: 0; background: none; }
+blockquote { margin: 1rem 0; padding-left: 1rem; border-left: 3px solid var(--rule); color: var(--muted); }
+hr { border: 0; border-top: 1px solid var(--rule); margin: 2rem 0; }
+table { border-collapse: collapse; width: 100%; }
+th, td { text-align: left; padding: .3rem .5rem; border-bottom: 1px solid var(--rule); }
+
+header.site {
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between;
+  gap: .5rem 1.5rem; padding: 1rem 0; border-bottom: 1px solid var(--rule);
+}
+.brand {
+  display: flex; align-items: center; gap: .5rem;
+  font-weight: 700; font-size: 1.25rem; color: var(--ink); text-decoration: none;
+}
+header nav { display: flex; flex-wrap: wrap; gap: .25rem 1rem; }
+header nav a { color: var(--ink); text-decoration: none; }
+header nav a:hover, header nav a[aria-current] { color: var(--accent); text-decoration: underline; }
+
+.intro h1 { font-size: 3rem; margin-bottom: .25rem; }
+.lead { font-size: 1.3rem; color: var(--muted); margin-top: 0; }
+.actions { display: flex; gap: 1.25rem; align-items: center; }
+.button {
+  display: inline-block; padding: .4rem 1.1rem; border-radius: 4px;
+  background: var(--accent); color: var(--paper); font-weight: 700; text-decoration: none;
+}
+.shot { margin: 1.5rem 0; }
+.shot img, article img { border: 1px solid var(--rule); border-radius: 4px; }
+figcaption { color: var(--muted); font-size: .9rem; }
+
+.date, .entries time { color: var(--muted); }
+.entries { list-style: none; padding: 0; }
+.entries li { margin: .4rem 0; }
+.entries time { display: inline-block; min-width: 7.5rem; font-variant-numeric: tabular-nums lining-nums; }
+.entries p { margin: .1rem 0 0 7.5rem; color: var(--muted); }
+.entries.pages p { margin-left: 0; }
+
+.note { color: var(--muted); font-size: .95rem; border-top: 1px solid var(--rule); padding-top: .75rem; }
+
+footer.site {
+  margin-top: 3rem; padding: 1rem 0 2rem; border-top: 1px solid var(--rule);
+  color: var(--muted); font-size: .9rem;
+}
+footer.site p { margin: .25rem 0; }
+
+@media (max-width: 34rem) {
+  html { font-size: 1.0625rem; }
+  .intro h1 { font-size: 2.3rem; }
+  .entries time { display: block; min-width: 0; }
+  .entries p { margin-left: 0; }
+}
