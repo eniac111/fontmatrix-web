@@ -6,6 +6,10 @@ description: Get Fontmatrix for Linux or Windows, or build it from source.
 The current release is **Fontmatrix 1.0.0**. All files are on the
 [release page on GitHub](https://github.com/fontmatrix/fontmatrix/releases/latest).
 
+<aside class="warning"><p>Download Fontmatrix only from GitHub, Flathub or your
+distribution. The domain fontmatrix.net belongs to scammers, not to the project;
+do not run anything you get from it.</p></aside>
+
 ## Linux
 
 **Flatpak bundle.** Download `fontmatrix-1.0.0.flatpak` from the

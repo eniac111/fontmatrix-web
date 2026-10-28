@@ -19,7 +19,8 @@ Frameworks 6 and released as [Fontmatrix 1.0.0](/news/fontmatrix-1.0.0/). It is
 maintained by Blagovest Petrov.
 
 The project's first home was fontmatrix.net, later fontmatrix.be. Both domains
-are gone, but the [Internet Archive](https://web.archive.org/web/20151218142406/http://fontmatrix.be/)
+were lost; fontmatrix.net has since been registered by scammers and has nothing
+to do with the project. The [Internet Archive](https://web.archive.org/web/20151218142406/http://fontmatrix.be/)
 kept the pages. They are collected here with their original text; download
 links point to the archived files, and the videos, which were hosted on
 blip.tv, are lost.
