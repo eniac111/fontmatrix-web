@@ -1,0 +1,124 @@
+{{- /*
+  JSON-LD. Two jobs here.
+
+  One: tell search engines what Fontmatrix is (a free font manager for Linux and
+  Windows) so the listing can carry a version, a licence and a price of zero.
+
+  Two: say plainly which site is the real one. The squatted fontmatrix.net
+  outranks this site, so every page states its canonical URL and links the
+  project's accounts elsewhere through sameAs. Those are the identity signals a
+  search engine can check against GitHub, Flathub and the distributions, and
+  that a squatter cannot copy truthfully.
+
+  Built with dict and jsonify rather than written out by hand, so quotes and
+  non-ASCII in a title or description can never break the JSON.
+*/ -}}
+{{- $p := .page -}}
+{{- $base := site.BaseURL -}}
+{{- $sameAs := slice
+  site.Params.repo
+  site.Params.flathub
+  "https://packages.debian.org/sid/fontmatrix"
+  "https://packages.ubuntu.com/stonking/fontmatrix"
+-}}
+{{- $publisher := dict
+  "@type" "Organization"
+  "@id" (printf "%s#project" $base)
+  "name" "The Fontmatrix project"
+  "url" $base
+  "logo" (absURL "images/fontmatrix-128.png")
+  "sameAs" $sameAs
+-}}
+{{- $website := dict
+  "@type" "WebSite"
+  "@id" (printf "%s#website" $base)
+  "name" site.Title
+  "alternateName" "Fontmatrix font manager"
+  "url" $base
+  "description" site.Params.description
+  "inLanguage" "en"
+  "publisher" (dict "@id" (printf "%s#project" $base))
+-}}
+{{- $graph := slice $website -}}
+
+{{- if $p.IsHome -}}
+  {{- $app := dict
+    "@type" "SoftwareApplication"
+    "@id" (printf "%s#app" $base)
+    "name" "Fontmatrix"
+    "alternateName" (slice "FontMatrix" "fontmatrix")
+    "description" site.Params.description
+    "applicationCategory" (slice "DesignApplication" "UtilitiesApplication")
+    "applicationSubCategory" "Font manager"
+    "operatingSystem" "Linux, Windows"
+    "softwareVersion" site.Params.version
+    "url" $base
+    "downloadUrl" (absURL "download/")
+    "installUrl" site.Params.flathub
+    "codeRepository" site.Params.repo
+    "image" .img
+    "screenshot" (slice (absURL "images/list.png") (absURL "images/family.png"))
+    "license" "https://www.gnu.org/licenses/old-licenses/gpl-2.0.html"
+    "isAccessibleForFree" true
+    "inLanguage" "en"
+    "offers" (dict "@type" "Offer" "price" "0" "priceCurrency" "EUR"
+                   "availability" "https://schema.org/InStock")
+    "author" (dict "@id" (printf "%s#project" $base))
+    "publisher" (dict "@id" (printf "%s#project" $base))
+    "sameAs" $sameAs
+    "featureList" (slice
+      "Activate and deactivate fonts for other applications"
+      "Tag fonts and group them into sets"
+      "Filter by tags, metadata, PANOSE, language coverage, licence and font technology"
+      "Inspect glyphs, OpenType features and TrueType tables"
+      "Variable fonts and colour fonts"
+      "Compare the glyphs of several fonts"
+      "Find duplicate fonts"
+      "Produce font books as PDF")
+  -}}
+  {{- $graph = $graph | append $app -}}
+{{- end -}}
+
+{{- if and (eq $p.Section "news") $p.IsPage -}}
+  {{- $post := dict
+    "@type" "BlogPosting"
+    "@id" (printf "%s#post" $p.Permalink)
+    "headline" $p.Title
+    "description" .desc
+    "url" $p.Permalink
+    "mainEntityOfPage" (dict "@type" "WebPage" "@id" $p.Permalink)
+    "image" .img
+    "inLanguage" "en"
+    "datePublished" ($p.Date.Format "2006-01-02T15:04:05Z07:00")
+    "dateModified" ($p.Lastmod.Format "2006-01-02T15:04:05Z07:00")
+    "author" (dict "@id" (printf "%s#project" $base))
+    "publisher" (dict "@id" (printf "%s#project" $base))
+    "isPartOf" (dict "@id" (printf "%s#website" $base))
+    "about" (dict "@type" "SoftwareApplication" "name" "Fontmatrix" "url" $base)
+  -}}
+  {{- $graph = $graph | append $post -}}
+{{- end -}}
+
+{{- if not $p.IsHome -}}
+  {{- $items := slice (dict "@type" "ListItem" "position" 1 "name" "Fontmatrix" "item" $base) -}}
+  {{- $n := 1 -}}
+  {{- with $p.Parent -}}
+    {{- if not .IsHome -}}
+      {{- $n = 2 -}}
+      {{- $items = $items | append (dict "@type" "ListItem" "position" 2 "name" .Title "item" .Permalink) -}}
+    {{- end -}}
+  {{- end -}}
+  {{- $items = $items | append (dict "@type" "ListItem" "position" (add $n 1) "name" $p.Title "item" $p.Permalink) -}}
+  {{- $graph = $graph | append (dict
+      "@type" "BreadcrumbList"
+      "@id" (printf "%s#breadcrumb" $p.Permalink)
+      "itemListElement" $items) -}}
+{{- end -}}
+
+{{- /* safeJS is required: inside a <script> element Go's contextual escaping
+       treats the string as a JS value and would encode the JSON a second time,
+       leaving a quoted string that no parser reads as structured data.
+       jsonify has already escaped the contents. */ -}}
+<script type="application/ld+json">
+{{- jsonify (dict "indent" "  ") (dict "@context" "https://schema.org" "@graph" $graph) | safeJS -}}
+</script>

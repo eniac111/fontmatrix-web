@@ -14,7 +14,9 @@ section = ["html", "rss"]
 [params]
 description = "Fontmatrix is a free font manager for Linux and Windows: organise, inspect and compare your fonts."
 repo = "https://github.com/fontmatrix/fontmatrix"
-flathub = "https://flathub.org/apps/details/com.github.fontmatrix.Fontmatrix"
+flathub = "https://flathub.org/apps/com.github.fontmatrix.Fontmatrix"
+# The current release, used by the structured data in layouts/_partials/schema.html.
+version = "1.0.1"
 
 [[menus.main]]
 name = "About"

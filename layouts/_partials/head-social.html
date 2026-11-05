@@ -1,0 +1,35 @@
+{{- /*
+  Open Graph and Twitter card tags, so that a pasted link unfurls with the
+  wordmark, the screenshot and a readable summary instead of a bare URL.
+  Called from baseof.html with the title, description and image already worked
+  out, so the <title>, the meta description and the card never disagree.
+*/ -}}
+{{- $p := .page -}}
+{{- $alt := "Fontmatrix, a font manager for Linux and Windows, showing a list of font previews" -}}
+<meta property="og:site_name" content="{{ site.Title }}">
+<meta property="og:type" content="{{ if eq $p.Section "news" }}article{{ else }}website{{ end }}">
+<meta property="og:title" content="{{ .title }}">
+<meta property="og:description" content="{{ .desc }}">
+<meta property="og:url" content="{{ $p.Permalink }}">
+<meta property="og:locale" content="en_GB">
+<meta property="og:image" content="{{ .img }}">
+<meta property="og:image:secure_url" content="{{ .img }}">
+<meta property="og:image:type" content="image/png">
+{{- if .imgDefault }}
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+{{- end }}
+<meta property="og:image:alt" content="{{ $alt }}">
+{{- if and (eq $p.Section "news") (not $p.Date.IsZero) }}
+<meta property="article:published_time" content="{{ $p.Date.Format "2006-01-02T15:04:05Z07:00" }}">
+{{- if not $p.Lastmod.IsZero }}
+<meta property="article:modified_time" content="{{ $p.Lastmod.Format "2006-01-02T15:04:05Z07:00" }}">
+{{- end }}
+<meta property="article:publisher" content="{{ site.BaseURL }}">
+<meta property="article:section" content="News">
+{{- end }}
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{ .title }}">
+<meta name="twitter:description" content="{{ .desc }}">
+<meta name="twitter:image" content="{{ .img }}">
+<meta name="twitter:image:alt" content="{{ $alt }}">

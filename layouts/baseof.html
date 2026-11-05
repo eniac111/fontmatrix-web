@@ -3,9 +3,39 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>{{ if .IsHome }}{{ site.Title }} — font manager{{ else }}{{ .Title }} · {{ site.Title }}{{ end }}</title>
-<meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ with .Summary }}{{ . | plainify | truncate 160 }}{{ else }}{{ site.Params.description }}{{ end }}{{ end }}">
+{{- /* Worked out once, so the tab title, the meta description, the social card
+       and the structured data all say the same thing. */ -}}
+{{- $title := printf "%s · %s" .Title site.Title -}}
+{{- /* The social card shows the site name on its own line, so repeating it in
+       the headline only wastes the width. Release posts are already called
+       "Fontmatrix x.y.z", so they need no suffix at all. */ -}}
+{{- $ogtitle := printf "%s — %s" .Title site.Title -}}
+{{- if hasPrefix .Title site.Title -}}
+  {{- $ogtitle = .Title -}}
+{{- end -}}
+{{- if .IsHome -}}
+  {{- $title = printf "%s — free font manager for Linux and Windows" site.Title -}}
+  {{- $ogtitle = $title -}}
+{{- end -}}
+{{- $desc := site.Params.description -}}
+{{- with .Description -}}
+  {{- $desc = . -}}
+{{- else -}}
+  {{- if and (not .IsHome) .Summary -}}
+    {{- $desc = .Summary | plainify | strings.TrimSpace | truncate 200 -}}
+  {{- end -}}
+{{- end -}}
+{{- $img := absURL "images/og-default.png" -}}
+{{- $imgDefault := true -}}
+{{- with .Params.images -}}
+  {{- $img = absURL (index . 0) -}}
+  {{- $imgDefault = false -}}
+{{- end -}}
+<title>{{ $title }}</title>
+<meta name="description" content="{{ $desc }}">
 <link rel="canonical" href="{{ .Permalink }}">
+{{ partial "head-social.html" (dict "page" . "title" $ogtitle "desc" $desc "img" $img "imgDefault" $imgDefault) }}
+{{ partial "schema.html" (dict "page" . "title" $ogtitle "desc" $desc "img" $img) }}
 <link rel="icon" href="{{ "images/fontmatrix.svg" | relURL }}" type="image/svg+xml">
 <link rel="preload" href="{{ "fonts/VelekaWorld-Regular.woff2" | relURL }}" as="font" type="font/woff2" crossorigin>
 {{ with site.GetPage "/news" }}{{ with .OutputFormats.Get "rss" }}<link rel="alternate" type="application/rss+xml" href="{{ .RelPermalink }}" title="{{ site.Title }} news">{{ end }}{{ end }}
